@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'org.flywaydb.flyway' version '10.11.0'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+flyway {
+    url = 'jdbc:h2:file:./h2db/test'
+    user = 'sa'
+    password = ''
+    locations = ['filesystem:src/main/resources/db/migrate']
+}
+
+dependencies {
+    implementation 'org.hibernate.orm:hibernate-core:6.6.1.Final'
+    implementation 'org.flywaydb:flyway-core:10.11.0'
+    runtimeOnly 'com.h2database:h2:2.2.220'
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.38'
+    compileOnly 'org.projectlombok:lombok:1.18.38'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(24))
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

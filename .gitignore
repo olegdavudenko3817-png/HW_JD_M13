@@ -1,0 +1,45 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Gradle
+.gradle/
+build/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Java
+*.class
+
+# H2 Database
+*.mv.db
+*.trace.db
+*.lock.db
+
+# Generated files
+*.jar
+*.war
+*.ear
+
+# Local environment
+.env
+
+# VS Code
+.vscode/
+
+# Temporary files
+*.tmp
+*.swp
+
+# Test reports
+reports/
+
+# Crash logs
+hs_err_pid*
+replay_pid*
